@@ -1,0 +1,16 @@
+<h1>Airlines</h1>
+
+<div class="airline-grid">
+    <div class="card" *ngFor="let airline of airlines" (click)="onAirlineClick(airline.id)">
+      <img [src]="airline.logo" class="card-img-top" alt="{{ airline.name }} logo">
+      <div class="card-body">
+        <h5 class="card-title">{{ airline.name }}</h5>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="pagination mt-3">
+    <button class="btn btn-secondary mr-2" [disabled]="page === 1" (click)="prevPage()">Previous</button>
+    <button class="btn btn-secondary" [disabled]="ngOnInit.length * pageSize" (click)="nextPage()">Next</button>
+  </div>

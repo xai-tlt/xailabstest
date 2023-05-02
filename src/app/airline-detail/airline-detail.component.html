@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>{{ airline.name }}</h1>
+        <img [src]="airline.logo" alt="{{ airline.name }} logo">
+      </div>
+      <div class="col-md-6">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Country:</strong> {{ airline.country }}</li>
+          <li><strong>Established:</strong> {{ airline.established }}</li>
+          <li><strong>Headquarters:</strong> {{ airline.head_quaters }}</li>
+          <li><strong>Website:</strong> <a href="{{ airline.website }}" target="_blank">{{ airline.website }}</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <hr>
+  
+    <h2>Passengers</h2>
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let passenger of passengers">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ passenger.name }}</h5>
+            <p class="card-text">{{ passenger.trips }} trips</p>
+            <p class="card-text"><strong>Airline:</strong> {{ passenger.airline.name }}</p>
+            <p class="card-text"><strong>Gender:</strong> {{ passenger.gender }}</p>
+            <p class="card-text"><strong>Phone:</strong> {{ passenger.phone }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ passenger.email }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="pagination mt-3">
+      <button class="btn btn-secondary mr-2" [disabled]="page === 1" (click)="prevPage()">Previous</button>
+      <button class="btn btn-secondary" [disabled]="passengers.length * pageSize" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+  
